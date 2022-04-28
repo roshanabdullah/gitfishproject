@@ -1,0 +1,265 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+    
+</head>
+
+<body>
+    {% block content %}
+    <div class="sidenav">
+        <div class="toplogo">
+            <img height="180px" width="180px" src="{% static './newlogo5.png' %}" />
+        </div>
+        <a href="#" id="show1">Customer Management</a>
+        <a href="#" id="show2">Sales Management</a>
+        <a href="#" id="show3" >Generate Bills</a>
+        <a href="#" id="show4" >Generate Reports</a>
+    </div>
+    
+       
+        <div id="customermanagement">
+            
+            <div class="cus_navbar">
+            
+                <form id="customer_navbar">
+                    {% csrf_token %}
+                    <button id="addButton" >Add Customer</button>
+                    <button id="deleteButton">Delete Customer</button>
+                    <button id="editButton">Update Customer</button>
+                    <button id="listButton">List All Customers</button>
+                </form>
+                
+            </div>
+            
+            <div class="customer_form">
+                <div class="customer_heading">
+                    <h2>Manage your customers here</h2>
+                </div>
+                <form action="" class="basic_form" method="POST">
+                    {% csrf_token %}
+                    <div class="first-row">
+                       
+                        <label>
+                            First Name
+                        </label>
+                        <input id="form_fields" type="text" name="customer_fname">
+                        <label>
+                            Last Name
+                        </label>
+                        <input id="form_fields" type="text" name="customer_lname">
+                        <label>
+                            Gender
+                        </label>
+                        <input id="form_fields" type="text" name="customer_gender">
+                    </div>
+                    <div class="second-row">
+                        
+                        <label>
+                            Address
+                        </label>
+                        <input id="form_fields" type="address" name="customer_address">
+                        <label>
+                            City
+                        </label>
+                        <input id="form_fields" type="text" name="customer_city">
+                        <label>
+                            ZIP Code
+                        </label>
+                        <input id="form_fields" type="text" name="customer_zip">
+                    </div>
+                    <div class="third-row">
+                        
+                        <label>
+                            State
+                        </label>
+                        <input id="form_fields" type="text" name="customer_state">
+                        <label>
+                            Home Phone
+                        </label>
+                        <input id="form_fields" type="tel" name="customer_home_phone">
+                        <label>
+                            Work Phone
+                        </label>
+                        <input id="form_fields" type="tel" name="customer_work_phone">
+
+                    </div>
+                    <div class="fourth-row">
+                        
+                        <label>
+                            Email
+                        </label>
+                        <input id="form_fields" type="email" name="customer_email">
+                        <label>
+                            Date of Purchase
+                        </label>
+                        <input id="form_fields" type="date" name="customer_purchase">
+                        <label>
+                            Delivery Date
+                        </label>
+                        <input id="form_fields" type="date" name="customer_delivery">
+
+                    </div>
+                    <div class="fifth-row">
+                        {% csrf_token %}
+                        <button id="add_customer" type="submit" value="customerData">Add your Customer</button>
+                    </div>
+                    
+                </form>
+            </div>
+            
+            
+        </div>
+    
+    <div id="deleteCustomer">
+        
+        <button id="goBackDelete">Go Back</button>
+        <div class="deleteClass">
+            <div class="deleteHeading">
+                <h2>Delete the Record of Customers from Here</h2>
+            </div>
+            <div class="searchAndDelete">
+                <div class="search">
+                    <div class="data">
+                        <table>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Gender</th>
+
+                            </tr>
+                            {%for i in messages%}
+                            
+                                <tr>
+                                    <td>{{i.customer_id}}</a></td>
+                                    <td>{{i.fname}}</td>
+                                    <td>{{i.lname}}</td>
+                                    <td>{{i.gender}}</td>
+                                    <td id="deleteLink"><a href="delete/{{i.customer_id}}">Delete</a></td>
+                                </tr>
+
+                            
+                                
+                            {%endfor%}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="editCustomer">
+        <button id="goBackEdit">Go Back</button>
+        <div class="deleteClass">
+            <div class="deleteHeading">
+                <h2>Update the Record of Customers from Here</h2>
+            </div>
+            <div class="updateData">
+                <div class="searchAndDelete">
+                    <div class="search">
+                        <div class="data">
+                            <table>
+                                <tr>
+                                    
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Gender</th>
+    
+                                </tr>
+                                {%for x in messages%}
+                                
+                                    <tr>
+                                        <td>{{x.fname}}</td>
+                                        <td>{{x.lname}}</td>
+                                        <td>{{x.gender}}</td>
+                                        <td id="updateLink"><a href="update/{{x.customer_id}}">Click here to update this row</a></td>
+                                    </tr>
+    
+                                
+                                    
+                                {%endfor%}
+                            </table>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <div id="listCustomer">
+        <button id="goBackList">Go Back</button>
+        <div class="deleteClass">
+            <div class="deleteHeading">
+                <h2>Delete the Record of Customers from Here</h2>
+            </div>
+            <div class="searchAndDelete">
+                <div class="search">
+                    <div class="data">
+                        <table>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Gender</th>
+                                <th>City</th>
+                                <th>Customer Email</th>
+                                <th>Mobile Phone</th>
+                                <th>Date of Purchase</th>
+                                <th>Delivery Date</th>
+
+                            </tr>
+                            {%for i in messages%}
+                            
+                                <tr>
+                                    <td>{{i.customer_id}}</a></td>
+                                    <td>{{i.fname}}</td>
+                                    <td>{{i.lname}}</td>
+                                    <td>{{i.gender}}</td>
+                                    <td>{{i.city}}</td>
+                                    <td>{{i.customer_email}}</td>
+                                    <td>{{i.mobile_phone}}</td>
+                                    <td>{{i.dateofpurchase}}</td>
+                                    <td>{{i.deliverydate}}</td>
+
+
+                                </tr>
+
+                            
+                                
+                            {%endfor%}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+
+    <div id="salesmanagement">
+        <h1>Sales</h1>
+    </div>
+    <div id="billmanagement">
+        <h1>Bills</h1>
+    </div>
+    <div id="reportmanagement">
+        <h1>Reports</h1>
+    </div>
+
+    {% endblock %}
+    <script src="{% static 'dashboard.js' %}"></script> 
+    
+    
+
+</body>
+
+</html>

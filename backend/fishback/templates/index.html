@@ -1,0 +1,41 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'poslogin.css' %}" />
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="loginHeading">
+            <h1>Login To Get Access to POS System</h1>
+        </div>
+        <div class="loginForm">
+            {%for message in messages%}
+            <h3 class="message">{{message}}</h3>
+            {%endfor%}
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label>
+                    Enter Your Username:
+                </label>
+                <input class="login_input" type="text" name="loginUser" id="loginUser" /><br/>
+                <label>
+                    Enter Your Password:
+                </label>
+                <input class="login_input" type="text" name="loginPassword" id="loginPassword" />
+                <input class="login_submit" type="submit" value="Login"><br/>
+                
+                
+
+            </form>
+        </div>
+    </div>
+    
+</body>
+
+</html>

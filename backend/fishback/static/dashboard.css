@@ -1,0 +1,373 @@
+@font-face {font-family: "Myriad Pro"; src: url("//db.onlinewebfonts.com/t/3dd6e9888191722420f62dd54664bc94.eot"); 
+    src: url("//db.onlinewebfonts.com/t/3dd6e9888191722420f62dd54664bc94.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/3dd6e9888191722420f62dd54664bc94.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/3dd6e9888191722420f62dd54664bc94.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/3dd6e9888191722420f62dd54664bc94.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/3dd6e9888191722420f62dd54664bc94.svg#Myriad Pro") format("svg"); }
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.sidenav a{
+    display:flex;
+    flex-direction:column;
+    padding-bottom:30px;
+    padding-top:30px;
+    padding-left:15px;
+    text-decoration:none;
+    color:#FFFFFF;
+    font-family:"Myriad Pro";
+    
+    font-size:14px;
+    line-height:24px;
+    text-align:left;
+    border-bottom:1.5px solid #ffffff;
+    border-bottom-style:dashed;
+
+}
+.sidenav{
+    position:fixed;
+    background-color:#000000;
+    width:200px;
+    height:100%;
+    overflow:auto;
+
+}
+.sidebar a:active{
+    color: white;
+  }
+.toplogo{
+    border-bottom: 1.5px solid #ffffff;
+    border-style:dashed;
+}
+#customermanagement{
+    display:none;
+    margin-left:200px;
+    height:auto;
+    width:auto;
+    background-color:#f3f6f9;
+    overflow:hidden;
+}
+#salesmanagement{
+    display:none;
+    margin-left:200px;
+    height:1000px;
+    width:auto;
+    background-color:red;
+    overflow:hidden;
+}
+#billmanagement{
+    display:none;
+    margin-left:200px;
+    height:1000px;
+    width:auto;
+    background-color:red;
+    overflow:hidden;
+}
+#reportmanagement{
+    display:none;
+    margin-left:200px;
+    height:1000px;
+    width:auto;
+    background-color:red;
+    overflow:hidden;
+}
+#customer_navbar{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-evenly;
+    padding-top:40px;
+    padding-bottom:40px;
+    border-bottom:1.5px solid #ffffff;
+    box-shadow:0px 1px 1px #ffffff;
+    background-color:#FFFFFF;
+    
+}
+#customer_navbar button{
+    color:#FFFFFF;
+    font-family:"Myriad Pro";
+    font-size:12px;
+    line-height:22px;
+    background-color:#000000;
+    padding-left:5px;
+    padding-right:5px;
+    padding-top:10px;
+    padding-bottom:10px;
+    cursor:pointer;
+    font-weight:600;
+    border:1.5px solid #000000;
+    
+}
+
+.first-row{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    align-items:center;
+    padding-left:40px;
+    padding-right:40px;
+}
+#form_fields{
+    color:#000000;
+    font-size:12px;
+    line-height:22px;
+    font-family:"Myriad Pro";
+    font-weight:500;
+    width:20%;
+}
+#form_fields:focus{
+    outline:none;
+}
+
+.basic_form label{
+    color:#000000;
+    font-family:"Myriad Pro";
+    font-size:14px;
+    line-height:24px;
+}
+.second-row{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    align-items:center;
+    padding-left:40px;
+    padding-right:40px;
+    margin-top:40px;
+}
+.third-row{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    align-items:center;
+    padding-left:40px;
+    padding-right:40px;
+    margin-top:40px;
+}
+.customer_heading h2{
+    color:#000000;
+    font-family:"Myriad Pro";
+    font-size:26px;
+    line-height:36px;
+    text-align: center;
+}
+.customer_heading{
+   padding-bottom:40px;
+}
+.fourth-row{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    align-items:center;
+    padding-left:40px;
+    padding-right:40px;
+    margin-top:40px;
+}
+
+.fifth-row{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    align-items:center;
+    padding-left:40px;
+    padding-right:40px;
+    margin-top:40px;
+}
+#add_customer{
+    color:#FFFFFF;
+    font-family:"Myriad Pro";
+    font-size:12px;
+    line-height:22px;
+    background-color:#000000;
+    padding-left:5px;
+    padding-right:5px;
+    padding-top:10px;
+    padding-bottom:10px;
+    cursor:pointer;
+    font-weight:600;
+    border:1.5px solid #000000;
+}
+.customer_form{
+    padding-top:40px;
+    padding-bottom:40px;
+}
+#deleteCustomer{
+    display:none;
+    margin-left:200px;
+    height:auto;
+    width:auto;
+    background-color:#f3f6f9;
+    overflow:hidden;
+}
+#editCustomer{
+    display:none;
+    margin-left:200px;
+    height:auto;
+    width:auto;
+    background-color:#f3f6f9;
+    overflow:hidden;
+}
+#listCustomer{
+    display:none;
+    margin-left:200px;
+    height:100%;
+    width:auto;
+    background-color:#f3f6f9;
+    overflow:hidden;
+}
+
+.deleteHeading h2{
+    color:#000000;
+    font-family:"Myriad Pro";
+    font-size:26px;
+    line-height:36px;
+    text-align: center;
+}
+.deleteHeading{
+   padding-bottom:40px;
+}
+.deleteClass{
+    padding-top:40px;
+    padding-bottom:40px;
+}
+.formSet{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;
+}
+.search{
+    padding-bottom:40px;
+}
+.data{
+    margin-left:20px;
+    margin-right:20px;
+    margin-top:40px;
+    margin-bottom:40px;
+    border:1px solid #000000;
+    border-radius: 12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+    padding-top:40px;
+    padding-bottom:40px;
+    background-color:#000000;
+}
+.data table{
+    width: 85%;
+    border-collapse:separate;
+    border:1px solid #ffffff;
+    
+    
+}
+.data table th, td{
+    font-family:"Myriad Pro";
+    text-align:center;
+    color:#ffffff;
+    padding-bottom:10px;
+    border:1px solid #ffffff;
+    
+    
+
+}
+.data table th{
+    font-size:16px;
+    line-height:26px;
+        
+}
+.data table td{
+    font-size:13px;
+    line-height:23px;
+    
+}
+#updateLink a{
+    color:#ffffff;
+    font-family:"Myriad Pro";
+    font-size:14px;
+    line-height:24px;
+    text-decoration:underline;
+}
+#updateLink a:active{
+    color:blue;
+    font-family:"Myriad Pro";
+    font-size:14px;
+    line-height:24px;
+    text-decoration:underline;
+}
+#updateLink a:hover{
+    color:blue;
+    font-family:"Myriad Pro";
+    font-size:14px;
+    line-height:24px;
+    text-decoration:underline;
+    cursor:pointer;
+}
+#deleteLink a{
+    color:#ffffff;
+    font-family:"Myriad Pro";
+    font-size:14px;
+    line-height:24px;
+    text-decoration:underline;
+}
+#deleteLink a:active{
+    color:blue;
+    font-family:"Myriad Pro";
+    font-size:14px;
+    line-height:24px;
+    text-decoration:underline;
+}
+#deleteLink a:hover{
+    color:blue;
+    font-family:"Myriad Pro";
+    font-size:14px;
+    line-height:24px;
+    text-decoration:underline;
+}
+#goBackDelete{
+    color:#FFFFFF;
+    font-family:"Myriad Pro";
+    font-size:12px;
+    line-height:22px;
+    background-color:#000000;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    cursor:pointer;
+    font-weight:600;
+    border:1.5px solid #000000;
+    border-radius:12px;
+}
+#goBackEdit{
+    color:#FFFFFF;
+    font-family:"Myriad Pro";
+    font-size:12px;
+    line-height:22px;
+    background-color:#000000;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    cursor:pointer;
+    font-weight:600;
+    border:1.5px solid #000000;
+    border-radius:12px;
+}
+#goBackList{
+    color:#FFFFFF;
+    font-family:"Myriad Pro";
+    font-size:12px;
+    line-height:22px;
+    background-color:#000000;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    cursor:pointer;
+    font-weight:600;
+    border:1.5px solid #000000;
+    border-radius:12px;
+}

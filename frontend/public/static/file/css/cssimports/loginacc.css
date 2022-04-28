@@ -1,0 +1,21 @@
+@import url('config.css');
+.loginButton{
+    display:block;
+    margin:0 auto;
+    margin-top:20px;
+    margin-bottom:10px;
+    color:var(--white-color);
+    font-family:var(--english-font);
+    background-color:var(--primary-color);
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+    border-radius:5px;
+    border:1px solid var(--primary-color);
+    cursor:pointer;
+}
+.loginButton:focus{
+    outline:none;
+}
+

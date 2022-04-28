@@ -1,0 +1,248 @@
+@import url('config.css');
+
+body{
+    background-color:var(--primary-color);
+}
+
+.inner-box{
+    display:block;
+    margin:0 auto;
+    background-color:var(--secondary-color);
+    height:auto;
+    width:800px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border:1px solid var(--secondary-color);
+    border-radius:12px;
+    padding-top:30px;
+    padding-bottom:30px;
+    padding-left:30px;
+    padding-right:30px;
+   
+
+}
+.accHeading{
+    color:var(--white-color);
+    font-family:var(--english-font);
+    font-size:2.25rem;
+    line-height:2.875rem;
+    font-weight:800;
+    text-align:center;
+}
+.accParaDetail{
+    color:var(--white-color);
+    font-family:var(--english-font);
+    font-weight:500;
+    text-align:center;
+}
+
+#username{
+    display:block;
+    margin:0 auto;
+    font-size:13px;
+    line-height:23px;
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+    font-family:var(--english-font);
+    border:1px solid var(--white-color);
+    border-radius:5px;
+    width:50%;
+}
+#username:focus{
+    outline:none;
+}
+input[type="email"]{
+    display:block;
+    margin:0 auto;
+    font-size:13px;
+    line-height:23px;
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+    font-family:var(--english-font);
+    border:1px solid var(--white-color);
+    border-radius:5px;
+    width:50%;
+}
+input[type="email"]:focus{
+    outline:none;
+}
+input[type="password"]{
+    display:block;
+    margin:0 auto;
+    font-size:13px;
+    line-height:23px;
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+    font-family:var(--english-font);
+    border:1px solid var(--white-color);
+    border-radius:5px;
+    width:50%;
+}
+input[type="password"]:focus{
+    outline:none;
+}
+
+    
+
+.accRegisterButton{
+    display:block;
+    margin:0 auto;
+    margin-top:20px;
+    margin-bottom:10px;
+    color:var(--white-color);
+    font-family:var(--english-font);
+    background-color:var(--primary-color);
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+    border-radius:5px;
+    border:1px solid var(--primary-color);
+    cursor:pointer;
+}
+.accRegisterButton:focus{
+    outline:none;
+}
+.linkClass a{
+    color:var(--white-color);
+    text-decoration:none;
+}
+.linkClass a:visited{
+    text-decoration:none;
+}
+
+.linkClass{
+    position:relative;
+    float:right;
+    margin-right:2px;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:5px;
+    padding-right:5px;
+    background-color:var(--secondary-color);
+    font-size:13px;
+    line-height:23px;
+    border:1px solid var(--white-color);
+    border-radius:5px;
+}
+.instructions {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    margin-left:10px;
+    margin-right: 310px;
+    position: absolute;
+    right:300px;
+    bottom:195px;
+}
+
+.instructions > svg {
+    margin-right: 0.25rem;
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+.instructions1 {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    margin-left:10px;
+    margin-right: 310px;
+    position: absolute;
+    right:300px;
+    bottom:85px;
+}
+
+.instructions1 > svg {
+    margin-right: 0.25rem;
+}
+
+.offscreen1 {
+    position: absolute;
+    left: -9999px;
+}
+.instructions2 {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    margin-left:10px;
+    margin-right: 310px;
+    position: absolute;
+    right:300px;
+    bottom:100px;
+}
+
+.instructions2 > svg {
+    margin-right: 0.25rem;
+}
+
+.offscreen2 {
+    position: absolute;
+    left: -9999px;
+}
+.hide {
+    display: none;
+}
+
+.valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+}
+
+.invalid {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.errmsg {
+    background-color:var(--primary-color);
+    color:var(--white-color);
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    
+}
+
+.line {
+    display: inline-block;
+}
+.errorsClass{
+    color:white;
+    font-size:10px;
+    padding-top:0;
+    padding-bottom:0;
+    font-family: var(--english-font);
+    font-weight: 800;
+    background-color:var(--secondary-color);
+    text-align: center;
+    margin-left: 200px;
+    margin-right:200px;
+    
+}
+.message{
+    color:var(--white-color);
+    background-color:var(--primary-color);
+    font-size:15px;
+    text-align: center;
+    margin-left:220px;
+    margin-right:220px;
+    padding-bottom:2px;
+    padding-top:2px;
+    border:1px solid var(--primary-color);
+    border-radius:5px;
+}
+
+
