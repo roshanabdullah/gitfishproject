@@ -1,18 +1,31 @@
 import React, {useState, useEffect} from "react";
 import {Link, Redirect} from "react-router-dom";
-
+import {useNavigate} from "react-router-dom";
+import {transitions, positions} from 'react-alert';
+import {useAlert} from "react-alert";
 
 
 
 
 
 function Account(){
-
-    const initialValues={username:"", email:"", password:"", confirm:""};
+    
+    const alert=useAlert();
+    const navigate=useNavigate();
+    const initialValues={first_name:"", email:"", password:""};
     const [formValues, setFormValues]=useState(initialValues);
     const [formErrors, setFormErrors]=useState({});
     const [isSubmit, setIsSubmit]=useState(false);
     
+    const accountAlert={
+        position: positions.TOP_MIDDLE,
+        timeout: 5000,
+        offset: '30px',
+ 
+        transition: transitions.SCALE
+    }
+
+
     const handleChange=(e)=>{
         e.preventDefault();
         const {name, value}=e.target;
@@ -25,15 +38,18 @@ function Account(){
         e.preventDefault();
         setFormErrors(validate(formValues));
         setIsSubmit(true);
-            const data={ username:formValues.username,
+            const data={ first_name:formValues.first_name,
             email:formValues.email, password:formValues.password}
-            fetch('http://127.0.0.1:8000/app/listcreate/', {
+            fetch('http://127.0.0.1:8000/users/', {
                 method:"POST",
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify(data),
-                withCredentials: true
+                
             }).then((res)=> {
                 console.log(res.data);
+                navigate('/', {replace:true})
+            }).catch((err)=>{
+                alert.show("Account Creation Failed", {...accountAlert});
             }) 
         }
     
@@ -48,8 +64,8 @@ function Account(){
     const validate = (values) => { 
         const errors={};
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-        if(!values.username){
-            errors.username="Username is required!";
+        if(!values.first_name){
+            errors.first_name="Username is required!";
             
         }
         if(!values.email){
@@ -65,15 +81,16 @@ function Account(){
         } else if (values.password.length > 20) {
             errors.password = "Password cannot exceed more than 10 characters";
         }
-        else if (values.confirm!==values.password){
-            errors.confirm="Password must be same";
-        }
+        
         
         
         
         return errors;
     };
-    
+    const alreadyAccount=(e)=>{
+        e.preventDefault();
+        navigate('/LoginAccount', {replace:true});
+    }
     
     return(
         
@@ -82,7 +99,7 @@ function Account(){
         <section>
             
             <div className="Container">
-                <span className="linkClass"><Link to="/LoginAccount">Already Have An Account Created?</Link></span> 
+                <button id="alreadyButton" onClick={alreadyAccount}>Already have an account?</button> 
                     <div className="inner-box">
                         <div className="acc-row1">
                             <h1 className="accHeading">Create An Account Here...</h1>
@@ -97,13 +114,13 @@ function Account(){
                             <pre>{JSON.stringify(undefined, 2)}</pre>
                         )}
                         
-                        <form onSubmit={handleSubmit}  className="accFormClass">
+                        <form  className="accFormClass">
                                 
-                                <input type="text" id="username" name="username"  
-                                placeholder="Enter Your Username"   value={formValues.username} onChange={handleChange}  />
+                                <input type="text" id="username" name="first_name"  
+                                placeholder="Enter Your Username"   value={formValues.first_name} onChange={handleChange}  />
                                 
                                 
-                                <p className="errorsClass">{formErrors.username}</p>
+                                <p className="errorsClass">{formErrors.first_name}</p>
                                 
                                 
                                     
@@ -123,12 +140,8 @@ function Account(){
                                 
                                 <p className="errorsClass">{formErrors.password}</p>
                                 
-                                    <input type="password" id="confirm_password"
-                                    name="confirm"  placeholder="Retype Your Password Again"  
-                                    value={formValues.confirm} onChange={handleChange} />
-                                <p className="errorsClass">{formErrors.confirm}</p>
                                 
-                                <button className="accRegisterButton">Submit</button>
+                                <button onClick={handleSubmit}  className="accRegisterButton">Submit</button>
                         </form>
                             
                     </div>

@@ -5,8 +5,18 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import startersData from './Data';
 import { useCart } from "react-use-cart";
+import { useNavigate } from "react-router-dom";
+import {useAuth} from "../context/AuthProvider";
 
+import { useAlert } from 'react-alert'
+import {transitions, positions} from 'react-alert';
 
+const logout_options={
+    position: positions.MIDDLE_LEFT,
+    timeout: 5000,
+    offset: '30px',
+    transition: transitions.SCALE
+}
 
 const options = {
     margin: 30,
@@ -35,9 +45,28 @@ const options = {
 };
 
 function Home() {
-    const { addItem } = useCart();    
+    const alert=useAlert();
+    const navigate = useNavigate()
+    const auth = useAuth()
+    const { addItem, removeItem, totalUniqueItems } = useCart();    
     console.warn(startersData);
     
+    const handleLogout = () => {
+        if(auth.user){
+        auth.logout()
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("User_ID");
+        localStorage.removeItem("react-use-cart");
+        navigate('/')
+        
+        alert.show("Successfully Logged Out", {...logout_options});
+        
+        }
+        else{
+            alert.show("Log in again",{...logout_options});
+        }
+      }
+      
     return(
         <div>
             <header id="header">
@@ -49,6 +78,7 @@ function Home() {
                 <li className="right-items"><i className="bi bi-person-circle"></i><Link to="/CreateAccount"> Create An Account</Link></li>&nbsp;&nbsp;&nbsp;
                 <li className="right-items"><i className="bi bi-arrow-right-circle-fill"></i><Link to="/LoginAccount"> Login/Continue As Guest</Link></li>
             </ul>
+            <button id="logoutButton" onClick={handleLogout}>Logout</button> 
             </header>
     
             <div id="section1">

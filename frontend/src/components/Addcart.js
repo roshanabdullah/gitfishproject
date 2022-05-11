@@ -1,17 +1,66 @@
 import React from "react";
 import { useCart } from "react-use-cart";
 import { useEffect, useState } from "react";
-import startersData from "./Data";
-import { loadStripe } from "@stripe/stripe-js";
-import axios from 'axios';
-import { Component } from "react";
 
-const stripePromise=loadStripe("pk_test_51K930USIBemfDVs67OkpVUsU7thyoJxIraC6HDkybouD5r8V8jtj4PaGAw4Wii2vOW0etNR2wTUiQ60rMVbiUvTx00nQZNZspN");
+import { useNavigate } from "react-router-dom";
+
+
 
 function Cart(){
-    console.log(stripePromise);
+    
+    const navigate=useNavigate();
+        
+    const user_id=localStorage.getItem("User_ID");
+   
     
 
+    
+   
+   const changeCheckout=(e)=>{
+       e.preventDefault();
+       const {name, value}=e.target;
+       setCheckoutData({...checkoutData, [name]:value});
+       console.log(checkoutData);
+   }
+  
+    
+   const handleCheckout=(e)=>{
+       e.preventDefault();
+       const main_data={notes:checkoutData.notes, user:user_id, quantity:totalItems, item:totalUniqueItems}
+         
+        
+       const authCheckout=JSON.parse(localStorage.getItem('authToken'));
+       
+       fetch('http://127.0.0.1:8000/cart/', {
+        method:"POST",
+        headers:{
+            'Authorization': `token ${authCheckout}`,
+            'Content-Type':'application/json',
+            'Accept':'application/json'
+        },
+        body:JSON.stringify(main_data),
+       } ).then((res)=>{
+            console.log(res.data);
+            navigate('/Cart/Checkout', {replace:false})   
+        })
+
+        
+        
+   } 
+   
+   const emptyback=(e)=>{
+       e.preventDefault();
+       navigate('/', {replace:true});
+
+   }
+   
+    
+    
+    
+    
+    
+    
+   
 
     
     const {
@@ -23,23 +72,38 @@ function Cart(){
         totalItems,
         cartTotal,
     } = useCart();
+    const delivery=cartTotal+2.5;
+    const VAT=parseFloat(delivery*0.05).toFixed(2);
+    const totalAmount=parseFloat(delivery+VAT).toFixed(2);
     
-   const delivery=cartTotal+2.5;
-   const VAT=parseFloat(delivery*0.05).toFixed(2);
-   const totalAmount=parseFloat(delivery+VAT).toFixed(2);
+    const checkoutValues={notes:""};
+    let [checkoutData, setCheckoutData]=useState(checkoutValues);
+    const addMore=(e)=>{
+        e.preventDefault();
+        navigate('/', {replace:true});
+    }
+    
+    
+    
+             
+    
+
    
    
   
     
-    if(isEmpty) return <h1 className="emptyCart">Your Cart is Empty</h1>
-    
+    if(isEmpty) return <div className="emptyDiv">
+        <h1 className="emptyCart">Your Cart is Empty</h1>
+        <button className="emptyBackButton" onClick={emptyback}>Go Back</button>
+    </div>  
     return(
         
         <section>
             
             <div className="mainSection">
+            <button onClick={addMore} id="addMore">Add more items!</button>
             <h1 className="shoppingHeading">Shopping Cart</h1>
-            <p className="paraShoppingHeading">You have {totalItems} in your shopping cart</p>   
+            <p className="paraShoppingHeading">You have {totalItems} items in your shopping cart</p>   
                {items.map((item) =>
                     <div className="cartRow" key={item.id} >
                         <div>
@@ -71,70 +135,8 @@ function Cart(){
                     </div>
                 )}
                 <div className="cartRow2">
-                    <div className="choose">
-                        <div className="chooseHeading">
-                            <h1>Choose</h1>
-                        </div>
-                        <div className="chooseBoxes">
-                            <div className="deliveryBox">
-                                <img src={require('./images/cart1.png')} height="180px" width="200px" alt="" />
-                                <h3>Delivery</h3>
-                            </div>
-                            <div className="dineBox">
-                                <img src={require('./images/cart2.png')} height="180px" width="200px" alt="" />
-                                <h3>Dine In</h3> 
-                            </div>
-                            <div className="takeaway">
-                                <img src={require('./images/cart3.png')} height="180px" width="200px" alt="" />
-                                <h3>Takeaway</h3>
-                            </div>
-                        </div>
-                        <div className="chooseData">
-                            <div className="deliveryAddress">
-                                <label>
-                                    House/Building
-                                    <br/>
-                                        <input type="address" id="house" name="house"/>
-                                </label>
-                                <br/>
-                                <label>
-                                    Block
-                                    <br/>
-                                <input type="address" id="block" name="block"/>
-                                </label>
-                                <br/>
-                                <label>
-                                  Road
-                                  <br/>  
-                                <input type="address" id="road" name="road"/>
-                                </label>
-                            </div>
-                            <br/>
-                            <div className="dineIn">
-                                <h3 className="countdownHeading">00:00</h3>
-                            </div>
-                            <div className="branchDrop">
-                                <select name="branch-select" id="branch-select">
-                                    
-                                    <option value="null">Choose Branch</option>
-                                    <option value="" name="name_Branch"></option>
-                                    
-                                </select>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <hr/>
-                    <div className="note">
-                        <form>
-                        <label>
-                            Leave a note here
-                            <input className="noteInput" type="text" id="noteID" name="text"/>
-                        </label> 
-                        </form>
-                    </div>
-                    <hr/>
+                   
+                    
                     
                     <div className="cartRow3">
                         <h1 className="paymentHeading">Payment Summary</h1>
@@ -144,6 +146,19 @@ function Cart(){
                             <p>VAT Fee: <mark>{VAT}BD</mark></p>
                             <p>Your Final Amount is: <mark>{totalAmount}BD</mark></p>
                         </div>
+                    </div>
+                    <div className="cartRow4">
+                        <button id="checkoutButton" onClick={handleCheckout}>Proceed to Checkout</button>
+                        
+                    </div>
+                    <hr/>
+                    <div className="note">
+                        <form>
+                        <label>
+                            Leave a note here
+                            <input className="noteInput" type="text" id="noteID" onChange={changeCheckout} name="notes" value={checkoutData.notes}/>
+                        </label> 
+                        </form>
                     </div>
                     
                     

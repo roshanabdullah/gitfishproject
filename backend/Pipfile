@@ -17,6 +17,10 @@ django-widget-tweaks = "*"
 django-bootstrap5 = "*"
 django-datetime = "*"
 datetime = "*"
+django-filter = "*"
+pillow = "*"
+django-rest-auth = "*"
+coreapi-cli = "*"
 
 [dev-packages]
 

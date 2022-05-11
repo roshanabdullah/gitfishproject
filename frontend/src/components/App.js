@@ -9,10 +9,23 @@ import Login from "./Loginpage";
 import Cart from "./Addcart";
 import { CartProvider } from "react-use-cart";
 import  ReactDOM  from "react-dom";
-import Card from "./creditCard";
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic';
+import { RequireAuth } from "./RequireAuth";
+import { AuthProvider } from "../context/AuthProvider";
+import Checkout from "./Checkout";
 
 
+const options = {
+  position: positions.TOP_CENTER,
+  timeout: 5000,
+  offset: '30px',
+ 
+  transition: transitions.SCALE
+}
 export default class App extends Component{
+  
+  
   render(){
   return (
       
@@ -21,9 +34,8 @@ export default class App extends Component{
                 <Route exact path='/' element={<Home />}></Route> 
                 <Route exact path="/CreateAccount" element={<Account />}></Route>
                 <Route exact path="/LoginAccount" element={<Login />}></Route>
-                <Route exact path="/Cart" element={<Cart />}></Route>
-                <Route exact path="/Card" element={<Card />}></Route>
-                
+                <Route exact path="/Cart" element={<RequireAuth><Cart /></RequireAuth>}></Route>
+                <Route exact path="/Cart/Checkout" element={<Checkout />}></Route>
             </Routes>
         </Router>
       
@@ -31,9 +43,13 @@ export default class App extends Component{
   }
 }
 ReactDOM.render(
-  <CartProvider>
-    {<App />}
-  </CartProvider>,
+  <AlertProvider template={AlertTemplate} {...options}>  
+    <AuthProvider>
+      <CartProvider>
+        {<App />}
+      </CartProvider>
+    </AuthProvider>
+  </AlertProvider>,
   document.getElementById("app")
 )
 
