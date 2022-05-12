@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/gitfishproject/static/css/main.e7342903.css",
-    "main.js": "/gitfishproject/static/js/main.613bdc60.js",
+    "main.js": "/gitfishproject/static/js/main.9a547ba0.js",
     "static/media/mainnew.png": "/gitfishproject/static/media/mainnew.fb42c96f38027823af8c.png",
     "static/media/oriental-salad.jpg": "/gitfishproject/static/media/oriental-salad.97e426ea3eeebd6bc663.jpg",
     "static/media/crab-meat.jpg": "/gitfishproject/static/media/crab-meat.b41ff5281896cbb974b7.jpg",
@@ -23,10 +23,10 @@
     "static/media/reallogo6.png": "/gitfishproject/static/media/reallogo6.e3f471024edba39df112.png",
     "index.html": "/gitfishproject/index.html",
     "main.e7342903.css.map": "/gitfishproject/static/css/main.e7342903.css.map",
-    "main.613bdc60.js.map": "/gitfishproject/static/js/main.613bdc60.js.map"
+    "main.9a547ba0.js.map": "/gitfishproject/static/js/main.9a547ba0.js.map"
   },
   "entrypoints": [
     "static/css/main.e7342903.css",
-    "static/js/main.613bdc60.js"
+    "static/js/main.9a547ba0.js"
   ]
 }
