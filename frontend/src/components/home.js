@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -48,7 +48,7 @@ function Home() {
     const alert=useAlert();
     const navigate = useNavigate()
     const auth = useAuth()
-    const { addItem, removeItem, totalUniqueItems } = useCart();    
+    const { addItem } = useCart();    
     console.warn(startersData);
     
     const handleLogout = () => {

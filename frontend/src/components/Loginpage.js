@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import {useAuth} from "../context/AuthProvider";
-import { saveToken, saveID, saveItemId } from "./getCommonOptions";
+import { saveToken, saveID } from "./getCommonOptions";
 import { useAlert } from 'react-alert';
 
 
@@ -44,11 +44,11 @@ function Login(){
                 const userID=res.data;
                 
                 authToken.map((auths)=>{
-                    saveToken(auths.token);
+                    return saveToken(auths.token);
                     
                 })
                 userID.map((ID)=>{
-                    saveID(ID.user_id);
+                     return saveID(ID.user_id);
                 })
                 auth.login(authToken);
                 navigate('/', { replace: true });

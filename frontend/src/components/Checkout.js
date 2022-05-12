@@ -1,11 +1,10 @@
 import React from "react";
-import {useState, useEffect} from "react";
-import getCommonOptions from "./getCommonOptions";
+import {useState} from "react";
 import { useCart } from "react-use-cart";
 import {useNavigate} from "react-router-dom";
 
 function Checkout(){
-    const {totalItems, totalUniqueItems, removeItem, items}=useCart();
+    const {totalItems, totalUniqueItems}=useCart();
     const paymentValues={payment_type:"", branch:"", order_type:""};  
     const [payment, setPayment]=useState(paymentValues);
     const navigate=useNavigate();

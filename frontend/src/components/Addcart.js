@@ -1,7 +1,6 @@
 import React from "react";
 import { useCart } from "react-use-cart";
-import { useEffect, useState } from "react";
-
+import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
