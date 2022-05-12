@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/gitfishproject/static/css/main.e7342903.css",
+    "main.js": "/gitfishproject/static/js/main.613bdc60.js",
+    "static/media/mainnew.png": "/gitfishproject/static/media/mainnew.fb42c96f38027823af8c.png",
+    "static/media/oriental-salad.jpg": "/gitfishproject/static/media/oriental-salad.97e426ea3eeebd6bc663.jpg",
+    "static/media/crab-meat.jpg": "/gitfishproject/static/media/crab-meat.b41ff5281896cbb974b7.jpg",
+    "static/media/reallogo5.png": "/gitfishproject/static/media/reallogo5.94161afb04f6349c0d55.png",
+    "static/media/biryani.jpg": "/gitfishproject/static/media/biryani.82bc508694e61c3f3182.jpg",
+    "static/media/pennepasta.jpg": "/gitfishproject/static/media/pennepasta.b585e67e235ea795e905.jpg",
+    "static/media/reallogo2.png": "/gitfishproject/static/media/reallogo2.8954d49f97d2cc47c08f.png",
+    "static/media/fatsalad.jpg": "/gitfishproject/static/media/fatsalad.23368a8b3698e337a97a.jpg",
+    "static/media/diamondsea.jpg": "/gitfishproject/static/media/diamondsea.2e4be4e0482f47a516e0.jpg",
+    "static/media/smoked-salmon.jpg": "/gitfishproject/static/media/smoked-salmon.baff2a959e02d87c03a8.jpg",
+    "static/media/tilapiacombo.jpg": "/gitfishproject/static/media/tilapiacombo.1e0e78e582a1eb31d8e4.jpg",
+    "static/media/reallogo3.png": "/gitfishproject/static/media/reallogo3.512072b0433729a0f8db.png",
+    "static/media/reallogo1.png": "/gitfishproject/static/media/reallogo1.0268b1d4a55a3c8e8902.png",
+    "static/media/prawn-caeser.jpg": "/gitfishproject/static/media/prawn-caeser.a91fe9f27a19c5c6b657.jpg",
+    "static/media/reallogo4.png": "/gitfishproject/static/media/reallogo4.c74230aa426c973e7d52.png",
+    "static/media/mussels.jpg": "/gitfishproject/static/media/mussels.df315df877d69a53edf0.jpg",
+    "static/media/kunafa.jpg": "/gitfishproject/static/media/kunafa.5fa6407b36792d533cab.jpg",
+    "static/media/shrimp.jpg": "/gitfishproject/static/media/shrimp.e8b1157a8f7a83333ca3.jpg",
+    "static/media/reallogo6.png": "/gitfishproject/static/media/reallogo6.e3f471024edba39df112.png",
+    "index.html": "/gitfishproject/index.html",
+    "main.e7342903.css.map": "/gitfishproject/static/css/main.e7342903.css.map",
+    "main.613bdc60.js.map": "/gitfishproject/static/js/main.613bdc60.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e7342903.css",
+    "static/js/main.613bdc60.js"
+  ]
+}
