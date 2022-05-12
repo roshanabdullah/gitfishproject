@@ -57,7 +57,7 @@ function Home() {
         localStorage.removeItem("authToken");
         localStorage.removeItem("User_ID");
         localStorage.removeItem("react-use-cart");
-        navigate('/')
+        navigate('/gitfishproject')
         
         alert.show("Successfully Logged Out", {...logout_options});
         
@@ -140,7 +140,7 @@ function Home() {
                                     <h4 className="product1-title-english">{s.name}</h4>
                                     <h4 className="product1-title-arabic">{s.arab}</h4>
                                     <h4 className="product1-price">&nbsp;<mark>{s.price}</mark></h4>
-                                    <Link to="/Cart"><button onClick={()=>addItem(s)} className="add-to-cart">Add to Cart</button></Link>
+                                    <Link to="gitfishproject/Cart"><button onClick={()=>addItem(s)} className="add-to-cart">Add to Cart</button></Link>
                                 </div>
                             </div>
                         )}
@@ -164,7 +164,7 @@ function Home() {
                                             <h4 className="product1-title-english">{a.name}</h4>
                                             <h4 className="product1-title-arabic">{a.arab}</h4>
                                             <h4 className="product1-price">&nbsp;<mark>{a.price}</mark></h4>
-                                            <Link to="/Cart"><button onClick={()=>addItem(a)} className="add-to-cart">Add to Cart</button></Link>
+                                            <Link to="gitfishproject/Cart"><button onClick={()=>addItem(a)} className="add-to-cart">Add to Cart</button></Link>
                                         </div>
                                     </div>
                                 )} 
@@ -189,7 +189,7 @@ function Home() {
                                             <h4 className="product1-title-english">{p.name}</h4>
                                             <h4 className="product1-title-arabic">{p.arab}</h4>
                                             <h4 className="product1-price">&nbsp;<mark>{p.price}</mark></h4>
-                                            <Link to="/Cart"><button onClick={()=>addItem(p)} className="add-to-cart">Add to Cart</button></Link>
+                                            <Link to="gitfishproject/Cart"><button onClick={()=>addItem(p)} className="add-to-cart">Add to Cart</button></Link>
                                         </div>
                                     </div>
                                 )} 

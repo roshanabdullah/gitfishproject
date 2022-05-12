@@ -30,11 +30,11 @@ export default class App extends Component{
       
         <Router>
             <Routes>
-                <Route exact path='/' element={<Home />}></Route> 
-                <Route exact path="/CreateAccount" element={<Account />}></Route>
-                <Route exact path="/LoginAccount" element={<Login />}></Route>
-                <Route exact path="/Cart" element={<RequireAuth><Cart /></RequireAuth>}></Route>
-                <Route exact path="/Cart/Checkout" element={<Checkout />}></Route>
+                <Route exact path="/gitfishproject" element={<Home />}></Route> 
+                <Route exact path="/gitfishproject/CreateAccount" element={<Account />}></Route>
+                <Route exact path="/gitfishproject/LoginAccount" element={<Login />}></Route>
+                <Route exact path="/gitfishproject/Cart" element={<RequireAuth><Cart /></RequireAuth>}></Route>
+                <Route exact path="/gitfishproject/Cart/Checkout" element={<Checkout />}></Route>
             </Routes>
         </Router>
       

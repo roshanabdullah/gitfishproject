@@ -40,7 +40,7 @@ function Cart(){
         body:JSON.stringify(main_data),
        } ).then((res)=>{
             console.log(res.data);
-            navigate('/Cart/Checkout', {replace:false})   
+            navigate('gitfishproject/Cart/Checkout', {replace:false})   
         })
 
         
@@ -79,7 +79,7 @@ function Cart(){
     let [checkoutData, setCheckoutData]=useState(checkoutValues);
     const addMore=(e)=>{
         e.preventDefault();
-        navigate('/', {replace:true});
+        navigate('/gitfishproject', {replace:true});
     }
     
     

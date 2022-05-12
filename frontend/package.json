@@ -1,6 +1,6 @@
 {
-  "homepage": "http://roshanabdullah.github.io",
-  "name": "frontend",
+  "homepage": "http://roshanabdullah.github.io/gitfishproject",
+  "name": "gitfishproject",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

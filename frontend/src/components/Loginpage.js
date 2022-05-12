@@ -51,7 +51,7 @@ function Login(){
                      return saveID(ID.user_id);
                 })
                 auth.login(authToken);
-                navigate('/', { replace: true });
+                navigate('/gitfishproject', { replace: true });
             }).catch((err)=>{
                 alert.show("Credentials Invalid");
             })
@@ -82,7 +82,7 @@ function Login(){
     }
     const loginCreateRedirect=(e)=>{
         e.preventDefault();
-        navigate('/CreateAccount', {replace:true});
+        navigate('gitfishproject/CreateAccount', {replace:true});
     }
    
         return(

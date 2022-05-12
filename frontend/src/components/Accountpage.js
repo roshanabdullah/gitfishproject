@@ -46,7 +46,7 @@ function Account(){
                 
             }).then((res)=> {
                 console.log(res.data);
-                navigate('/', {replace:true})
+                navigate('/gitfishproject', {replace:true})
             }).catch((err)=>{
                 alert.show("Account Creation Failed", {...accountAlert});
             }) 
@@ -88,7 +88,7 @@ function Account(){
     };
     const alreadyAccount=(e)=>{
         e.preventDefault();
-        navigate('/LoginAccount', {replace:true});
+        navigate('gitfishproject/LoginAccount', {replace:true});
     }
     
     return(

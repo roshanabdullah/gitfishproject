@@ -29,7 +29,7 @@ function Checkout(){
         }).then((res)=>{
             console.log(res.data);
             localStorage.removeItem("react-use-cart");
-            navigate('/', {replace:true});
+            navigate('/gitfishproject', {replace:true});
         }).catch((err)=>{
             alert("Order Not Successful");
         })
