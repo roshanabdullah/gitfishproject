@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import {useAuth} from "../context/AuthProvider";
-import { saveToken, saveID, saveItemId } from "./getCommonOptions";
+import { saveToken, saveID } from "./getCommonOptions";
 import { useAlert } from 'react-alert';
 
 
@@ -14,7 +14,10 @@ function Login(){
     const navigate = useNavigate()
     
     const auth = useAuth()
-
+    const goBackLogin=(e)=>{
+        e.preventDefault();
+        navigate('/', {replace:true})
+    }
     
         
     const myHandleChange=(e)=>{
@@ -31,7 +34,7 @@ function Login(){
         setIsSubmit(true);
         const data={ 
             email:loginForm.email, password:loginForm.password}
-            fetch('http://127.0.0.1:8000/login/', {
+            fetch('http://kamalumar.pythonanywhere.com/login/', {
                 method:"POST",
                 headers: {"Content-Type":"application/json",},
                 body: JSON.stringify(data),
@@ -44,11 +47,11 @@ function Login(){
                 const userID=res.data;
                 
                 authToken.map((auths)=>{
-                    saveToken(auths.token);
+                     return saveToken(auths.token);
                     
                 })
                 userID.map((ID)=>{
-                    saveID(ID.user_id);
+                     return saveID(ID.user_id);
                 })
                 auth.login(authToken);
                 navigate('/', { replace: true });
@@ -89,6 +92,7 @@ function Login(){
             <div>
                 <div className="Container">
                     <button className="buttonCreateLogin" onClick={loginCreateRedirect}>Don't have an account?</button>
+                    <button id="goBackLoginID" onClick={goBackLogin}>Back To Home</button>
                     <div className="inner-box">
                         <div className="acc-row1">
                             <h1 className="accHeading">Enter Your Login Details Below...</h1>

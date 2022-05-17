@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -7,6 +7,7 @@ import startersData from './Data';
 import { useCart } from "react-use-cart";
 import { useNavigate } from "react-router-dom";
 import {useAuth} from "../context/AuthProvider";
+import ReactWhatsapp from 'react-whatsapp';
 
 import { useAlert } from 'react-alert'
 import {transitions, positions} from 'react-alert';
@@ -48,7 +49,7 @@ function Home() {
     const alert=useAlert();
     const navigate = useNavigate()
     const auth = useAuth()
-    const { addItem, removeItem, totalUniqueItems } = useCart();    
+    const { addItem} = useCart();    
     console.warn(startersData);
     
     const handleLogout = () => {
@@ -208,12 +209,12 @@ function Home() {
                         </div>
                         <div className="col2">
                             <ul id="first-ul">
-                                <li className="phone-contact"><i className="bi bi-telephone-fill"></i> 17651400</li>&nbsp;&nbsp;&nbsp;
-                                <li className="phone-contact"><i className="bi bi-whatsapp"></i> 33709453</li>
+                                <li className="phone-contact"><i className="bi bi-telephone-fill"></i><a id="phone-number-link" href="tel:+97333709453"> 17651400</a></li>&nbsp;&nbsp;&nbsp;
+                                <li className="phone-contact"><i className="bi bi-whatsapp"></i><ReactWhatsapp id="react_whatsapp" number="+97317651400" message="Redirecting you to whatsapp number"> 33709453</ReactWhatsapp></li>
                             </ul>
                             <ul id="second-ul">
-                                <li className="social-contact"><i className="bi bi-facebook"></i> Golden.diamondfish</li>&nbsp;&nbsp;&nbsp;
-                                <li className="social-contact"><i className="bi bi-instagram"></i> Golden.diamondfish</li>
+                                <li className="social-contact"><i className="bi bi-facebook"></i><Link id="golden_link" to="#"> Golden.diamondfish</Link></li>&nbsp;&nbsp;&nbsp;
+                                <li className="social-contact"><i className="bi bi-instagram"></i><Link id="golden_link" to="#"> Golden.diamondfish</Link></li>
                             </ul>
                         </div>
                         <div className="col3">

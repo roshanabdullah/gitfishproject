@@ -2,7 +2,7 @@
 import React, {Component} from "react";
 import "../index";
 import Home from "./home";
-import {render} from "react-dom";
+
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Account from "./Accountpage";
 import Login from "./Loginpage";

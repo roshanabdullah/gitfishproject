@@ -1,11 +1,11 @@
 import React from "react";
-import {useState, useEffect} from "react";
-import getCommonOptions from "./getCommonOptions";
+import {useState} from "react";
+
 import { useCart } from "react-use-cart";
 import {useNavigate} from "react-router-dom";
 
 function Checkout(){
-    const {totalItems, totalUniqueItems, removeItem, items}=useCart();
+    const {totalItems, totalUniqueItems}=useCart();
     const paymentValues={payment_type:"", branch:"", order_type:""};  
     const [payment, setPayment]=useState(paymentValues);
     const navigate=useNavigate();
@@ -19,7 +19,7 @@ function Checkout(){
         e.preventDefault();
         const data={payment_type:payment.payment_type, branch:payment.branch, order_type:payment.order_type}
         const authPayment=JSON.parse(localStorage.getItem('authToken'));
-        fetch('http://127.0.0.1:8000/order/place_order/', {
+        fetch('http://kamalumar.pythonanywhere.com/order/place_order/', {
             method:"POST",
             headers:{
                 'Authorization': `token ${authPayment}`,
@@ -28,11 +28,16 @@ function Checkout(){
             },
             body: JSON.stringify(data),  
         }).then((res)=>{
-            console.log(res.data);
+            if(!res.ok){
+                alert("Order not completed, redirecting you back to homepage");
+                navigate('/', {replace:true});
+            }
+            else{
             localStorage.removeItem("react-use-cart");
             navigate('/', {replace:true});
+            }
         }).catch((err)=>{
-            alert("Order Not Successful");
+            console.log(err);
         })
 
         
@@ -84,7 +89,7 @@ function Checkout(){
                             
                             <option>Select Branch</option>
                             
-                            <option value={1}>Fish Restaurant</option>
+                            <option value={1}>Gold Fish 1</option>
                             
                             
                         </select>

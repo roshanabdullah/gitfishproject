@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Link, Redirect} from "react-router-dom";
+
 import {useNavigate} from "react-router-dom";
 import {transitions, positions} from 'react-alert';
 import {useAlert} from "react-alert";
@@ -40,7 +40,7 @@ function Account(){
         setIsSubmit(true);
             const data={ first_name:formValues.first_name,
             email:formValues.email, password:formValues.password}
-            fetch('http://127.0.0.1:8000/users/', {
+            fetch('http://kamalumar.pythonanywhere.com/users/', {
                 method:"POST",
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify(data),
@@ -91,6 +91,10 @@ function Account(){
         e.preventDefault();
         navigate('/LoginAccount', {replace:true});
     }
+    const backFromAccount=(e)=>{
+        e.preventDefault();
+        navigate('/', {replace:true});
+    }
     
     return(
         
@@ -100,6 +104,7 @@ function Account(){
             
             <div className="Container">
                 <button id="alreadyButton" onClick={alreadyAccount}>Already have an account?</button> 
+                <button id="goBackToHome" onClick={backFromAccount}>Back To Home</button>
                     <div className="inner-box">
                         <div className="acc-row1">
                             <h1 className="accHeading">Create An Account Here...</h1>

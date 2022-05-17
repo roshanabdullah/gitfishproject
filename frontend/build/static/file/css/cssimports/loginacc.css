@@ -25,3 +25,11 @@
     border:1px solid var(--white-color);
     padding:5px 10px 10px 5px;
 }
+#goBackLoginID{  
+    float:right;
+    background-color: var(--white-color);
+    color:var(--primary-color);
+    font-family: var(--english-font);
+    border:1px solid var(--white-color);
+    padding:5px 10px 10px 5px;
+}

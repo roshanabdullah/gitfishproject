@@ -1,6 +1,6 @@
 import React from "react";
 import { useCart } from "react-use-cart";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
@@ -31,7 +31,7 @@ function Cart(){
         
        const authCheckout=JSON.parse(localStorage.getItem('authToken'));
        
-       fetch('http://127.0.0.1:8000/cart/', {
+       fetch('http://kamalumar.pythonanywhere.com/cart/', {
         method:"POST",
         headers:{
             'Authorization': `token ${authCheckout}`,
@@ -41,7 +41,15 @@ function Cart(){
         body:JSON.stringify(main_data),
        } ).then((res)=>{
             console.log(res.data);
-            navigate('/Cart/Checkout', {replace:false})   
+            if(!res.ok){
+                alert("Checkout Has Been Cancelled, Redirecting you to home page");
+                navigate('/', {replace:true});
+            }
+            else{
+            navigate('/Cart/Checkout', {replace:false})
+            }   
+        }).catch((err)=>{
+            console.log(err);
         })
 
         
