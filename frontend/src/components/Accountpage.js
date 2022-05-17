@@ -103,7 +103,7 @@ function Account(){
         <section>
             
             <div className="Container">
-                <button id="alreadyButton" onClick={alreadyAccount}>Already have an account?</button> 
+                 
                 <button id="goBackToHome" onClick={backFromAccount}>Back To Home</button>
                     <div className="inner-box">
                         <div className="acc-row1">
@@ -147,7 +147,9 @@ function Account(){
                                 
                                 
                                 <button onClick={handleSubmit}  className="accRegisterButton">Submit</button>
+                                <button id="alreadyButton" onClick={alreadyAccount}>Already have an account?</button>
                         </form>
+                        
                             
                     </div>
                 </div>

@@ -91,7 +91,7 @@ function Login(){
         return(
             <div>
                 <div className="Container">
-                    <button className="buttonCreateLogin" onClick={loginCreateRedirect}>Don't have an account?</button>
+                   
                     <button id="goBackLoginID" onClick={goBackLogin}>Back To Home</button>
                     <div className="inner-box">
                         <div className="acc-row1">
@@ -107,6 +107,7 @@ function Login(){
                                 onChange={myHandleChange}  ></input>
                                  <p className="errorsClass">{formErrors.password}</p>
                                 <button onClick={handleSubmit} className="loginButton"  type="submit">Sign In</button>    
+                                <button className="buttonCreateLogin" onClick={loginCreateRedirect}>Don't have an account?</button>
                             </form>
 
                        
