@@ -17,6 +17,9 @@
     font-family:'GE-Hili' ;
     src: url("GE Hili Book.ttf") format("truetype");
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
    max-height:100vh;
    max-width:100vw;
@@ -442,5 +445,6 @@ color:var(--white-color);
 #golden_link:hover{
     text-decoration:none;
 }
+
 
 

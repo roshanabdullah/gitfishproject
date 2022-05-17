@@ -94,44 +94,46 @@ function Home() {
                 </div>
                 <div id="menu-items">
                     <div id="starters">
-                        <img src={require('./images/reallogo1.png')} height="200px" width="200px" alt="" />
+                        <a href="#Starters_linking"><img src={require('./images/reallogo1.png')} height="200px" width="200px" alt="" /></a>
                         <h3 className="starters1">Starters</h3>
                         <h3 className="starters2">المقبلات</h3>
                     </div>
                 <div id="salad">
-                    <img src={require('./images/reallogo2.png')} height="200px" width="200px" alt="" />
+                <a href="#Salad_linking"><img src={require('./images/reallogo2.png')} height="200px" width="200px" alt="" /></a>
                     <h3 className="salad1">Salad</h3>
                     <h3 className="salad2">سلطة</h3>
                 </div>
                 <div id="soup">
-                    <img src={require('./images/reallogo3.png')} height="200px" width="200px" alt="" />
+                <a href="#"><img src={require('./images/reallogo3.png')} height="200px" width="200px" alt="" /></a>
                     <h3 className="soup1">Soup</h3>
                     <h3 className="soup2">حساء</h3>
                 </div>
                 <div id="main-cours">
-                    <img src={require('./images/reallogo4.png')} height="200px" width="200px" alt="" />
+                <a href="#Cours_linking"><img src={require('./images/reallogo4.png')} height="200px" width="200px" alt="" /></a>
                     <h3 className="main-cours1">Main Cours</h3>
                     <h3 className="main-cours2">الطبق الرئيسي</h3>
                 </div>
                 <div id="fish-market">
-                    <img src={require('./images/reallogo5.png')} height="200px" width="200px" alt="" />
+                <a href="#"><img src={require('./images/reallogo5.png')} height="200px" width="200px" alt="" /></a>
                     <h3 className="fish-market1">Fish Market</h3>
                     <h3 className="fish-market2">سوق الأسماك</h3>
                 </div>
                 <div id="drinks">
-                    <img src={require('./images/reallogo6.png')} height="200px" width="200px" alt="" />
+                <a href="#"><img src={require('./images/reallogo6.png')} height="200px" width="200px" alt="" /></a>
                     <h3 className="drinks1">Drinks</h3>
                     <h3 className="drinks2">مشروبات</h3>
                 </div>
             </div>
             </div>
             <div id="section2">
+            <div id="Starters_linking">
                 <div id="starters-menu">
                     <div id="starter-titles">
                         <h1 id="starter-title-english">Starters</h1>&nbsp;&nbsp;
                         <h1 id="starter-title-arabic">المقبلات</h1>
                     </div>
                 </div>
+            </div>
                 <div id="row">
                     <OwlCarousel className="owl-carousel owl-theme" id="owl-settings" {...options}>
                         {startersData.starters.map((s)=>
@@ -149,13 +151,14 @@ function Home() {
                         
                     </OwlCarousel>
                 </div>
+                    <div id="Salad_linking">
                         <div id="starters-menu">
                             <div id="starter-titles">
                                 <h1 id="starter-title-english">Salad</h1>&nbsp;&nbsp;
                                 <h1 id="starter-title-arabic">سلطة</h1>
                             </div>
                         </div>
-   
+                    </div>                        
                         <div id="row">
                             <OwlCarousel className="owl-carousel owl-theme" id="owl-settings" {...options}>
                                 {startersData.salad.map((a)=>
@@ -173,11 +176,12 @@ function Home() {
                             </OwlCarousel>
                 
                         </div>
-    
-                        <div id="starters-menu">
-                            <div id="starter-titles">
-                                <h1 id="starter-title-english">Main cours</h1>&nbsp;&nbsp;
-                                <h1 id="starter-title-arabic">الطبق الرئيسي</h1>
+                        <div id="Cours_linking">
+                            <div id="starters-menu">
+                                <div id="starter-titles">
+                                    <h1 id="starter-title-english">Main cours</h1>&nbsp;&nbsp;
+                                    <h1 id="starter-title-arabic">الطبق الرئيسي</h1>
+                                </div>
                             </div>
                         </div>
                         <div id="row">
