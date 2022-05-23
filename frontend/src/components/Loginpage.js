@@ -4,7 +4,7 @@ import {useAuth} from "../context/AuthProvider";
 import { saveToken, saveID } from "./getCommonOptions";
 import { useAlert } from 'react-alert';
 
-function Login({setLoggedIn, IsLoggedOut}){
+function Login({setLoggedIn, IsLoggedOut, setShowLogout}){
     const alert=useAlert();
     const loginValues={email:"", password:""};
     const [loginForm, setLoginForm]=useState(loginValues);

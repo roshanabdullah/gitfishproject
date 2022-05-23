@@ -28,13 +28,14 @@ export default function App(){
   
 const [loggedIn, setLoggedIn]=useState(false);
 const [loggedout, IsLoggedOut]=useState(true); 
+const [showlogout, setShowLogout]=useState(false);
   return (
       
         <Router>
             <Routes>
                 <Route exact path='/' element={<Home loggedIn={loggedIn} loggedout={loggedout} IsLoggedOut={IsLoggedOut} setLoggedIn={setLoggedIn}/>}></Route> 
                 <Route exact path="/CreateAccount" element={<Account />}></Route>
-                <Route exact path="/LoginAccount" element={<Login setLoggedIn={setLoggedIn} IsLoggedOut={IsLoggedOut}  />}></Route>
+                <Route exact path="/LoginAccount" element={<Login setLoggedIn={setLoggedIn} IsLoggedOut={IsLoggedOut}   />}></Route>
                 <Route exact path="/Cart" element={<RequireAuth><Cart /></RequireAuth>}></Route>
                 <Route exact path="/Cart/Checkout" element={<Checkout />}></Route>
             </Routes>

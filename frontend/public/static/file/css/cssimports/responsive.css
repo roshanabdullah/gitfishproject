@@ -302,7 +302,7 @@ and (max-width:640px){
        height:180px;
        width:180px;
    }
-   .cartName,.cartArab{
+   .cartName,.cartArab, .cartPrice{
        font-size:14px;
        margin-left:0;
    }
@@ -342,5 +342,33 @@ and (max-width:640px){
    }
    .emptyBackButton{
        left:0;
+   }
+   #logoutButton{
+    font-size:10px;
+    line-height:20px;
+   }
+   #myaccount-drop{
+    font-size:10px;
+    line-height:20px;
+   }
+   .checkoutHeading{
+    font-size:18px;
+    line-height:28px;
+
+   }
+   .headingCheckoutDetails h3{
+       font-size:14px;
+   }
+   .checkoutDetailsShow{
+       font-size:12px;
+   }
+   #headingOrder h5{
+    font-size:14px;
+   }
+   #select_style{
+       font-size:12px;
+   }
+   .placeOrderButton button{
+       font-size:12px;
    }
 }

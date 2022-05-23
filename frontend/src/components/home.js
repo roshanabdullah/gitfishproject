@@ -10,6 +10,10 @@ import {useAuth} from "../context/AuthProvider";
 import ReactWhatsapp from 'react-whatsapp';
 import { useAlert } from 'react-alert';
 import {transitions, positions} from 'react-alert';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
+import DropdownItem from "react-bootstrap/esm/DropdownItem";
+import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 
 
 const logout_options={
@@ -93,14 +97,23 @@ function Home({loggedIn, loggedout, IsLoggedOut, setLoggedIn}) {
             </ul>
             )}
             {loggedIn && (
-            <ul className="account-login">
-                <li className="right-items"><i className="bi bi-arrow-right-circle-fill"></i>My Account</li>
-            </ul>
+            <Dropdown>
+                <Dropdown.Toggle id="myaccount-drop">
+                My Account
+                </Dropdown.Toggle>
+                <Dropdown.Menu id="drop-account-menu">
+                    <DropdownItem id="logoutButton">
+                        Your Previous Orders
+                    </DropdownItem>
+                    <DropdownItem id="logoutButton" onClick={handleLogout}>
+                        Logout
+                    </DropdownItem>
+                </Dropdown.Menu>
+            </Dropdown>    
             )}
             
            
             
-            <button id="logoutButton" onClick={handleLogout}>Logout</button> 
             </header>
     
             <div id="section1">

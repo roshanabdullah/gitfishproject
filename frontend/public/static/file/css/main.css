@@ -60,6 +60,7 @@ cursor: pointer;
     line-height:1.625rem;
     font-family:var(--english-font);
     font-weight:600;
+    
 }
 .right-items a{
     color:var(--white-color);
@@ -407,20 +408,26 @@ color:var(--white-color);
     margin-left:3.125rem;
 }
 #logoutButton{
-    background-color:var(--primary-color);
-    color:var(--white-color);
-    border:0.062rem solid var(--primary-color);
-    border-radius:0.75rem;
-    font-size:1rem;
-    line-height:1.625rem;
+    color:var(--primary-color);
     font-weight:600;
-    margin-bottom:0.625rem;
-    padding:5px 10px 10px 5px;
-    
+    background-color: var(--white-color);
+    font-family: var(--english-font);
+    text-align:center;
+    border: 2px solid var(--primary-color);
+    margin-top:10px;
+    margin-bottom:10px;
+   padding:10px;
+
 }
-#logoutButton:focus{
-    outline:none;
+#logoutButton:hover{
+    cursor:pointer;
 }
+#drop-account-menu{
+    padding-left: 10px;
+    padding-right:10px;
+}
+
+
 #react_whatsapp{
     color:var(--primary-color);
     background-color:#C3C6D7;
@@ -445,6 +452,12 @@ color:var(--white-color);
 #golden_link:hover{
     text-decoration:none;
 }
-
-
+#myaccount-drop{
+    background-color:var(--primary-color);
+    border:1px solid var(--primary-color);
+    color:var(--white-color);
+    font-family:var(--english-font);
+    outline:none;
+    font-weight:800;
+}
 

@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React from "react";
 import { useCart } from "react-use-cart";
 import { useState } from "react";
 
@@ -7,81 +7,41 @@ import { useNavigate } from "react-router-dom";
 
 
 function Cart(){
-    const takeawayy=useRef();
-    const dinee=useRef();
-    const deliveryy=useRef();
+
     const navigate=useNavigate();
         
     const user_id=localStorage.getItem("User_ID");
     const paymentValues={payment_type:"", branch:"", order_type:""};  
     const [payment, setPayment]=useState(paymentValues);
-    const [orderDrop, setOrderDrop]=useState(false);
     const [branchDrop, setBranchDrop]=useState(false);
     const [paymentDrop, setPaymentDrop]=useState(false);
 
     
-   const orderTypeClickTakeaway=(e)=>{
-       setBranchDrop(true);
-       e.preventDefault();
-       setPaymentDrop(false);
-       
-   }
-   const orderTypeClickDelivery=(e)=>{
-      setPaymentDrop(true);
-      e.preventDefault();
-      setBranchDrop(false);
-    
-   }
-   const orderTypeClickDinee=(e)=>{
-       setBranchDrop(true);
-       e.preventDefault();
-       setPaymentDrop(false);
-   }
-   const changeCheckout=(e)=>{
-       e.preventDefault();
-       const {name, value}=e.target;
-       setCheckoutData({...checkoutData, [name]:value});
-       console.log(checkoutData);
-   }
+   
+  
   
     
-   const handleCheckout=(e)=>{
-       e.preventDefault();
-       const main_data={notes:checkoutData.notes, user:user_id, quantity:totalItems, item:totalUniqueItems}
-         
-        
-       const authCheckout=JSON.parse(localStorage.getItem('authToken'));
-       
-       fetch('http://127.0.0.1:8000/cart/', {
+ 
+   const handleOrder=(e)=>{
+    e.preventDefault();
+    const main_data={notes:checkoutData.notes, user:user_id, quantity:totalItems, item:totalUniqueItems}
+    const authPayment=JSON.parse(localStorage.getItem('authToken'));
+    fetch('http://127.0.0.1:8000/cart/', {
         method:"POST",
         headers:{
-            'Authorization': `token ${authCheckout}`,
+            'Authorization': `token ${authPayment}`,
             'Content-Type':'application/json',
             'Accept':'application/json'
         },
         body:JSON.stringify(main_data),
        } ).then((res)=>{
-            console.log(res.data);
-            if(!res.ok){
-                alert("Checkout Has Been Cancelled, Redirecting you to home page");
-                navigate('/', {replace:true});
-            }
-            else{
-            navigate('/Cart/Checkout', {replace:false})
-            }   
+            console.log(res.data); 
         }).catch((err)=>{
             console.log(err);
         })
 
-        
-       
-        
-        
-   } 
-   const handleOrder=(e)=>{
-    e.preventDefault();
     const data={payment_type:payment.payment_type, branch:payment.branch, order_type:payment.order_type}
-    const authPayment=JSON.parse(localStorage.getItem('authToken'));
+    
     fetch('http://127.0.0.1:8000/order/place_order/', {
         method:"POST",
         headers:{
@@ -102,13 +62,46 @@ function Cart(){
     }).catch((err)=>{
         console.log(err);
     })
+    
 
     
 }
 const orderChange=(e)=>{
     e.preventDefault();
     const {name, value}=e.target;
+    setCheckoutData({...checkoutData, [name]:value});
     setPayment({...payment, [name]:value});
+    console.log(payment);
+    
+    
+    
+}
+
+const orderTypeChange=(e)=>{
+    e.preventDefault();
+    const {name, value}=e.target;
+    setCheckoutData({...checkoutData, [name]:value});
+    setPayment({...payment, [name]:value});
+    if(e.target.value==="1"){
+        setBranchDrop(true);
+        e.preventDefault();
+        setPaymentDrop(false);
+    }
+    else if(e.target.value==="2"){
+        setBranchDrop(true);
+        e.preventDefault();
+        setPaymentDrop(false);
+    }
+    else if(e.target.value==="3"){
+        setPaymentDrop(true);
+        e.preventDefault();
+        setBranchDrop(false);
+    }
+    else if(e.target.value==="none"){
+        setBranchDrop(false);
+        e.preventDefault();
+        setPaymentDrop(false);
+    }
     console.log(payment);
 }
 
@@ -215,16 +208,13 @@ const orderChange=(e)=>{
                             <p>Your Final Amount is: <mark>{totalAmount}BD</mark></p>
                         </div>
                     </div>
-                    <div className="cartRow4">
-                        <button id="checkoutButton" onClick={handleCheckout}>Proceed to Checkout</button>
-                        
-                    </div>
+                
                     <hr/>
                     <div className="note">
                         <form>
                         <label>
                             Leave a note here
-                            <input className="noteInput" type="text" id="noteID" onChange={changeCheckout} name="notes" value={checkoutData.notes}/>
+                            <input className="noteInput" type="text" id="noteID" onChange={orderChange} name="notes" value={checkoutData.notes}/>
                         </label> 
                         </form>
                     </div>
@@ -257,14 +247,14 @@ const orderChange=(e)=>{
                     </div>
                     <div id="selectBigOrder">
                         
-                        <select id="select_style"  onChange={orderChange} name="order_type" value={payment.order_type}>
+                        <select id="select_style"  onChange={orderTypeChange} name="order_type" value={payment.order_type}>
                             
-                            <option>Select Order Type</option>
+                            <option value="none" >Select Order Type</option>
                             
                                 
-                                <option onClick={orderTypeClickTakeaway}  ref={takeawayy}  value={1}>Takeaway</option>
-                                <option onClick={orderTypeClickDinee}  ref={dinee} value={2}>Dine</option>
-                                <option onClick={orderTypeClickDelivery} ref={deliveryy}  value={3}>Delivery</option>
+                                <option     value={1}>Takeaway</option>
+                                <option   value={2}>Dine</option>
+                                <option    value={3}>Delivery</option>
                                 
                                 
                            
@@ -313,7 +303,7 @@ const orderChange=(e)=>{
                         
                         <select id="select_style" onChange={orderChange} name="payment_type" value={payment.payment_type}>
                             
-                            <option  >Select Payment Type</option>
+                            <option >Select Payment Type</option>
                             
                                 
                                 <option value={1}>Cash</option>
