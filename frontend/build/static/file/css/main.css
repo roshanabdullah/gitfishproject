@@ -17,6 +17,9 @@
     font-family:'GE-Hili' ;
     src: url("GE Hili Book.ttf") format("truetype");
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
    max-height:100vh;
    max-width:100vw;
@@ -380,7 +383,7 @@ color:var(--white-color);
     font-size:2.25rem;
     font-family: var(--english-font);
     color:var(--primary-color);
-    font-weight: 800;
+    
     text-align: center;
     
 }
@@ -398,7 +401,7 @@ color:var(--white-color);
     font-size:1.562rem;
     font-family: var(--english-font);
     color:var(--primary-color);
-    font-weight: 800;  
+      
 }
 #first-ul{
     margin-left:3.125rem;
@@ -418,3 +421,30 @@ color:var(--white-color);
 #logoutButton:focus{
     outline:none;
 }
+#react_whatsapp{
+    color:var(--primary-color);
+    background-color:#C3C6D7;
+    border: 0px;
+    outline:none;
+    font-weight: 800;
+}
+#phone-number-link{
+    color:var(--primary-color);
+    background-color: #C3C6D7;
+    font-weight: 800;
+    
+}
+#phone-number-link:hover{
+    text-decoration:none;
+}
+#golden_link{
+    color:var(--primary-color);
+    background-color: #C3C6D7;
+    font-weight: 800;
+}
+#golden_link:hover{
+    text-decoration:none;
+}
+
+
+

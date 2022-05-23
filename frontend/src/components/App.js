@@ -1,8 +1,7 @@
 
-import React, {Component} from "react";
+import React, {useState} from "react";
 import "../index";
 import Home from "./home";
-
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Account from "./Accountpage";
 import Login from "./Loginpage";
@@ -23,17 +22,19 @@ const options = {
  
   transition: transitions.SCALE
 }
-export default class App extends Component{
+
+
+export default function App(){
   
-  
-  render(){
+const [loggedIn, setLoggedIn]=useState(false);
+const [loggedout, IsLoggedOut]=useState(true); 
   return (
       
         <Router>
             <Routes>
-                <Route exact path='/' element={<Home />}></Route> 
+                <Route exact path='/' element={<Home loggedIn={loggedIn} loggedout={loggedout} IsLoggedOut={IsLoggedOut} setLoggedIn={setLoggedIn}/>}></Route> 
                 <Route exact path="/CreateAccount" element={<Account />}></Route>
-                <Route exact path="/LoginAccount" element={<Login />}></Route>
+                <Route exact path="/LoginAccount" element={<Login setLoggedIn={setLoggedIn} IsLoggedOut={IsLoggedOut}  />}></Route>
                 <Route exact path="/Cart" element={<RequireAuth><Cart /></RequireAuth>}></Route>
                 <Route exact path="/Cart/Checkout" element={<Checkout />}></Route>
             </Routes>
@@ -41,7 +42,7 @@ export default class App extends Component{
       
     );
   }
-}
+
 ReactDOM.render(
   <AlertProvider template={AlertTemplate} {...options}>  
     <AuthProvider>

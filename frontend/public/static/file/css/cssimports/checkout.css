@@ -17,19 +17,13 @@
       src: url("GE Hili Book.ttf") format("truetype");
   }
 
-.checkoutContainer{
-    
-        margin-top:40px;
-        margin-bottom:40px;
-        padding-left:20px;
-        padding-right:20px;
-    
-}
+
 .checkoutHeading{
     color:var(--white-color);
     font-family: var(--english-font);
     font-weight: 700;
-    text-align: center;
+    text-align: left;
+    margin-left: 40px;
 }
 #checkoutRow2{
     background-color:var(--white-color);
@@ -39,6 +33,8 @@
     font-family: var(--english-font);
     font-weight: 700;
     text-align: center;
+    margin-left:40px;
+    margin-right:40px;
 }
 .headingCheckoutDetails{
     color:var(--primary-color);

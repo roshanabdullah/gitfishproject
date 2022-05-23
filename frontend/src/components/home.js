@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -8,9 +8,9 @@ import { useCart } from "react-use-cart";
 import { useNavigate } from "react-router-dom";
 import {useAuth} from "../context/AuthProvider";
 import ReactWhatsapp from 'react-whatsapp';
-
-import { useAlert } from 'react-alert'
+import { useAlert } from 'react-alert';
 import {transitions, positions} from 'react-alert';
+
 
 const logout_options={
     position: positions.MIDDLE_LEFT,
@@ -45,40 +45,61 @@ const options = {
     },
 };
 
-function Home() {
+function Home({loggedIn, loggedout, IsLoggedOut, setLoggedIn}) {
+    
     const alert=useAlert();
     const navigate = useNavigate()
     const auth = useAuth()
     const { addItem} = useCart();    
     console.warn(startersData);
     
+    
+    
+    
+
+    
+
     const handleLogout = () => {
         if(auth.user){
-        auth.logout()
+        auth.logout();
         localStorage.removeItem("authToken");
         localStorage.removeItem("User_ID");
         localStorage.removeItem("react-use-cart");
-        navigate('/')
-        
+        navigate('/');
+        IsLoggedOut(true);
+        setLoggedIn(false);
         alert.show("Successfully Logged Out", {...logout_options});
         
         }
         else{
+            
             alert.show("Log in again",{...logout_options});
         }
       }
       
     return(
         <div>
+            
             <header id="header">
+            
             <ul className="left-side">
                 <li className="left-items"><i className="bi bi-telephone-fill"></i> 17651400</li>&nbsp;&nbsp;&nbsp;
                 <li className="left-items"><i className="bi bi-facebook"></i> Golden.diamondfish</li>
             </ul>
+            {loggedout && (
             <ul className="account-login">
                 <li className="right-items"><i className="bi bi-person-circle"></i><Link to="/CreateAccount"> Create An Account</Link></li>&nbsp;&nbsp;&nbsp;
                 <li className="right-items"><i className="bi bi-arrow-right-circle-fill"></i><Link to="/LoginAccount"> Login/Continue As Guest</Link></li>
             </ul>
+            )}
+            {loggedIn && (
+            <ul className="account-login">
+                <li className="right-items"><i className="bi bi-arrow-right-circle-fill"></i>My Account</li>
+            </ul>
+            )}
+            
+           
+            
             <button id="logoutButton" onClick={handleLogout}>Logout</button> 
             </header>
     

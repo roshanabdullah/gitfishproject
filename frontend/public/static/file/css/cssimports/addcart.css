@@ -27,7 +27,7 @@
     
     
 }
-.cartName, .cartArab{
+.cartName, .cartArab, .cartPrice{
     display:block;
     margin-left:100px;
     color:var(--primary-color);
@@ -223,6 +223,8 @@ hr{
     font-family:var(--english-font);
     font-weight:700;
     padding-left:40px;
+    
+
 
 }
 .mainSection{
@@ -236,6 +238,7 @@ hr{
     font-family:var(--english-font);
     font-weight:600;
     padding-left:40px;
+
 }
 .paymentHeading{
     color:var(--primary-color);

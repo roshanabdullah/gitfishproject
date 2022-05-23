@@ -40,7 +40,7 @@ function Account(){
         setIsSubmit(true);
             const data={ first_name:formValues.first_name,
             email:formValues.email, password:formValues.password}
-            fetch('http://kamalumar.pythonanywhere.com/users/', {
+            fetch('http://127.0.0.1:8000/users/', {
                 method:"POST",
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify(data),

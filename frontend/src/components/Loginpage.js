@@ -4,13 +4,15 @@ import {useAuth} from "../context/AuthProvider";
 import { saveToken, saveID } from "./getCommonOptions";
 import { useAlert } from 'react-alert';
 
-
-function Login(){
+function Login({setLoggedIn, IsLoggedOut}){
     const alert=useAlert();
     const loginValues={email:"", password:""};
     const [loginForm, setLoginForm]=useState(loginValues);
     const [formErrors, setFormErrors]=useState({});
     const [isSubmit, setIsSubmit]=useState(false);
+    
+    
+
     const navigate = useNavigate()
     
     const auth = useAuth()
@@ -32,9 +34,11 @@ function Login(){
         console.log(loginForm);
         setFormErrors(validate(loginForm));
         setIsSubmit(true);
+        setLoggedIn(true);
+        IsLoggedOut(false);
         const data={ 
             email:loginForm.email, password:loginForm.password}
-            fetch('http://kamalumar.pythonanywhere.com/login/', {
+            fetch('http://127.0.0.1:8000/login/', {
                 method:"POST",
                 headers: {"Content-Type":"application/json",},
                 body: JSON.stringify(data),
@@ -55,6 +59,8 @@ function Login(){
                 })
                 auth.login(authToken);
                 navigate('/', { replace: true });
+                
+                
             }).catch((err)=>{
                 alert.show("Credentials Invalid");
             })
@@ -90,6 +96,7 @@ function Login(){
    
         return(
             <div>
+               
                 <div className="Container">
                    
                     <button id="goBackLoginID" onClick={goBackLogin}>Back To Home</button>
@@ -118,4 +125,6 @@ function Login(){
         );
     
 }
+
 export default Login;
+

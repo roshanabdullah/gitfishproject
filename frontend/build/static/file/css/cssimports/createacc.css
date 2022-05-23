@@ -226,6 +226,10 @@ input[type="password"]:focus{
 
 
 #alreadyButton{
+    display:block;
+    margin:0 auto;
+    font-size:15px;
+    line-height:25px;
     background-color: var(--white-color);
     color:var(--primary-color);
     font-family: var(--english-font);
